@@ -11,27 +11,6 @@
   flex-direction: column;
   align-items: center;
 
-  section {
-    width: fit-content;
-    text-align: start;
-
-    p {
-      margin: .3rem 0;
-    }
-  }
-
-  h1 {
-    display: flex;
-    gap: 1rem;
-    padding: 1rem;
-
-    p {
-      display: flex;
-      flex-direction: column;
-      font-size: .9rem;
-      font-weight: normal;
-    }
-  }
 }
 
 .App-logo {
@@ -47,7 +26,6 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
