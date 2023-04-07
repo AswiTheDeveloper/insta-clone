@@ -12,6 +12,8 @@ export default function Header() {
         textDecoration: "none",
         color: 'white'
     }
+
+    console.log(JSON.parse(localStorage.user));
     return (
         <main className='header-class'>
             <header>
@@ -27,12 +29,11 @@ export default function Header() {
                 <h2>MORE</h2>
             </header>
             <Routes>
-                <Route index element={<Posts />} />
-                <Route path="/posts" element={<Posts />} />
-                <Route path='/feed' element={<Feed />} />
-                <Route path='/chats' element={<Chat />} />
-                <Route path='/profile' element={<Profile />} />
-
+                <Route index Component={Posts} />
+                <Route path="/posts" Component={Posts} />
+                <Route path='/feed' Component={Feed} />
+                <Route path='/chats' Component={Chat} />
+                <Route path='/profile' Component={Profile} />
             </Routes>
         </main>)
 
