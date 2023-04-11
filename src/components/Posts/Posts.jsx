@@ -18,9 +18,9 @@ export default function Posts() {
         <main className='posts'>
             <h1>INSTA CLONE <p><span>{time.date}</span><strong>{time.time}</strong> </p></h1>
             <section>
-                <p><strong>Header/Routing:</strong> Aswi</p>
-                <p><strong>Feed/Explore:</strong></p>
-                <p><strong>Insta Posts:</strong></p>
+                <p><strong>Header/Routing:</strong> sai</p>
+                <p><strong>Feed/Explore:</strong>babji</p>
+                <p><strong>Insta Posts:</strong>kumar</p>
                 <p><strong>Chat:</strong></p>
                 <p><strong>SignIn/SignUp(create Account):</strong></p>
             </section>
