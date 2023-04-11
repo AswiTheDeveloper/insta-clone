@@ -13,7 +13,7 @@ export default function Header() {
         color: 'white'
     }
 
-    console.log(JSON.parse(localStorage.user));
+    // console.log(JSON.parse(localStorage.user));
     return (
         <main className='header-class'>
             <header>
