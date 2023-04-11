@@ -1,28 +1,78 @@
 .posts {
-    width: 40rem;
+  width: 40rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  section {
+    width: fit-content;
+    text-align: start;
+
+    p {
+      margin: 0.3rem 0;
+    }
+  }
+
+  h1 {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+
+    p {
+      display: flex;
+      flex-direction: column;
+      font-size: 0.9rem;
+      font-weight: normal;
+    }
+  }
+}
+.insta-post {
+  background-color: coral;
+  height: 30rem;
+  width: 30rem;
+  display: flex;
+  padding: 1rem;
+  justify-content: space-evenly;
+
+  section {
+    background-color: white;
+    width: 29rem;
+    height: 27rem;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
 
-    section {
-        width: fit-content;
-        text-align: start;
-
-        p {
-            margin: .3rem 0;
-        }
+    font-weight: 500;
+    .top {
+      width: 27rem;
+      height: 3rem;
+      display: flex;
+      justify-content: space-between;
+      background-color: white;
+    }
+    span {
+      display: flex;
+      justify-content: space-between;
     }
 
-    h1 {
-        display: flex;
-        gap: 1rem;
-        padding: 1rem;
-
-        p {
-            display: flex;
-            flex-direction: column;
-            font-size: .9rem;
-            font-weight: normal;
-        }
+    div {
+      width: 27rem;
+      height: 23rem;
+      background-color: pink;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
+  }
+
+  .icon-box {
+    display: flex;
+    justify-content: space-between;
+    width: 30rem;
+    padding: 0 1.5rem;
+    img {
+      width: 2rem;
+    }
+  }
 }
