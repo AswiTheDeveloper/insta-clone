@@ -20,7 +20,7 @@ export default function Posts() {
             <section>
                 <p><strong>Header/Routing:</strong> Aswi</p>
                 <p><strong>Feed/Explore:</strong></p>
-                <p><strong>Insta Posts:</strong></p>
+                <p><strong>Insta Posts:</strong>Sai,Babji,kumar</p>
                 <p><strong>Chat:</strong> Kiran, Bhavani</p>
                 <p><strong>SignIn/SignUp(create Account): </strong> Sagar, Santhosh, VenkatSai </p>
             </section>
