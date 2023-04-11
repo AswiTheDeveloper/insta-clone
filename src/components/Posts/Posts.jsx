@@ -21,7 +21,7 @@ export default function Posts() {
                 <p><strong>Header/Routing:</strong> Aswi</p>
                 <p><strong>Feed/Explore:</strong></p>
                 <p><strong>Insta Posts:</strong></p>
-                <p><strong>Chat:</strong></p>
+                <p><strong>Chat:</strong> Kiran, Bhavani</p>
                 <p><strong>SignIn/SignUp(create Account): </strong> Sagar, Santhosh, VenkatSai </p>
             </section>
         </main>)
