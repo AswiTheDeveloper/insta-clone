@@ -4,7 +4,6 @@ import Posts from '../Posts/Posts';
 import Feed from '../Feed/Explore/Feed';
 import Chat from '../chats/Chat';
 import Profile from '../profile/Profile';
-
 import './header.scss';
 
 export default function Header() {
@@ -25,7 +24,6 @@ export default function Header() {
                     <li> <Link style={linkStyles} to='/chats'>CHATS</Link></li>
                     <li> <Link style={linkStyles} to='/profile'>PROFILE</Link></li>
                 </ul>
-
                 <h2>MORE</h2>
             </header>
             <Routes>
@@ -35,6 +33,6 @@ export default function Header() {
                 <Route path='/chats' Component={Chat} />
                 <Route path='/profile' Component={Profile} />
             </Routes>
-        </main>)
-
+        </main>
+        )
 }
