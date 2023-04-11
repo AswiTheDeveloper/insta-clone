@@ -22,7 +22,7 @@ export default function Posts() {
                 <p><strong>Feed/Explore:</strong></p>
                 <p><strong>Insta Posts:</strong></p>
                 <p><strong>Chat:</strong></p>
-                <p><strong>SignIn/SignUp(create Account):</strong></p>
+                <p><strong>SignIn/SignUp(create Account): </strong> Sagar, Santhosh, VenkatSai </p>
             </section>
         </main>)
 }
