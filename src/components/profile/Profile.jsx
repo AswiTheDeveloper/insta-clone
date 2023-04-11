@@ -1,8 +1,9 @@
-import React from 'react'
+import React from 'react';
+import SignIn from './SignIn/SignIn';
 
 export default function Profile() {
     return (
-        <main>
-            <h1>SignIn/SignUp</h1>
+        <main className='profile'>
+        <SignIn/>
         </main>)
 }
