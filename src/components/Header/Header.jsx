@@ -1,10 +1,6 @@
 import React from 'react';
-import { Routes, Route, Link } from "react-router-dom";
-import Posts from '../Posts/Posts';
-import Feed from '../Feed/Explore/Feed';
-import Chat from '../chats/Chat';
-import Profile from '../profile/Profile';
 import './header.scss';
+import { Link } from 'react-router-dom';
 
 export default function Header() {
     let linkStyles = {
@@ -12,7 +8,6 @@ export default function Header() {
         color: 'white'
     }
 
-    // console.log(JSON.parse(localStorage.user));
     return (
         <main className='header-class'>
             <header>
@@ -26,13 +21,7 @@ export default function Header() {
                 </ul>
                 <h2>MORE</h2>
             </header>
-            <Routes>
-                <Route index Component={Posts} />
-                <Route path="/posts" Component={Posts} />
-                <Route path='/feed' Component={Feed} />
-                <Route path='/chats' Component={Chat} />
-                <Route path='/profile' Component={Profile} />
-            </Routes>
+          
         </main>
         )
 }
