@@ -1,78 +1,65 @@
 .posts {
-  width: 40rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 1rem;
+  background-color: coral;
+  height: 100vh;
+  overflow-y: scroll;
 
-  section {
-    width: fit-content;
-    text-align: start;
 
-    p {
-      margin: 0.3rem 0;
-    }
-  }
 
-  h1 {
+  .insta-post {
+    height: auto;
+    width: auto;
     display: flex;
-    gap: 1rem;
     padding: 1rem;
+    justify-content: space-evenly;
+    margin: .3rem;
 
-    p {
+    section {
+      background-color: white;
+      width: auto;
+      height: auto;
       display: flex;
       flex-direction: column;
-      font-size: 0.9rem;
-      font-weight: normal;
-    }
-  }
-}
-.insta-post {
-  background-color: coral;
-  height: 30rem;
-  width: 30rem;
-  display: flex;
-  padding: 1rem;
-  justify-content: space-evenly;
-
-  section {
-    background-color: white;
-    width: 29rem;
-    height: 27rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-
-    font-weight: 500;
-    .top {
-      width: 27rem;
-      height: 3rem;
-      display: flex;
-      justify-content: space-between;
-      background-color: white;
-    }
-    span {
-      display: flex;
-      justify-content: space-between;
-    }
-
-    div {
-      width: 27rem;
-      height: 23rem;
-      background-color: pink;
-      display: flex;
       align-items: center;
-      justify-content: center;
-    }
-  }
+      justify-content: space-between;
+      padding: 1rem;
 
-  .icon-box {
-    display: flex;
-    justify-content: space-between;
-    width: 30rem;
-    padding: 0 1.5rem;
-    img {
-      width: 2rem;
+      font-weight: 500;
+
+
+      span {
+        display: flex;
+        justify-content: space-between;
+      }
+
+
+      img {
+        width: 100%;
+      }
+
+
+      div {
+        width: 27rem;
+        height: 23rem;
+        background-color: pink;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+
+    .icon-box {
+      display: flex;
+      justify-content: space-between;
+      width: 30rem;
+      padding: 0 1.5rem;
+
+      img {
+        width: 2rem;
+      }
     }
   }
 }

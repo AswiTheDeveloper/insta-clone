@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from "react";
 import './header.scss';
 import { Link } from 'react-router-dom';
 
@@ -7,6 +8,18 @@ export default function Header() {
         textDecoration: "none",
         color: 'white'
     }
+
+
+    const [time, setTime] = useState({
+        time: "",
+        date: "",
+    });
+    setInterval(() => {
+        setTime({
+            time: new Date().toLocaleTimeString(),
+            date: new Date().toDateString(),
+        });
+    }, 1000);
 
     return (
         <main className='header-class'>
@@ -19,9 +32,31 @@ export default function Header() {
                     <li> <Link style={linkStyles} to='/chats'>CHATS</Link></li>
                     <li> <Link style={linkStyles} to='/profile'>PROFILE</Link></li>
                 </ul>
-                <h2>MORE</h2>
+                <p>
+                    <span>{time.date}</span>
+                    <h3>{time.time}</h3>
+                    <section>
+                        <p>
+                            <strong>Header/Routing:</strong> Aswi
+                        </p>
+                        <p>
+                            <strong>Feed/Explore:</strong>
+                        </p>
+                        <p>
+                            <strong>Insta Posts:</strong>Sai,Babji,kumar
+                        </p>
+                        <p>
+                            <strong>Chat:</strong> Kiran, Bhavani
+                        </p>
+                        <p>
+                            <strong>SignIn/SignUp(create Account): </strong> Sagar, Santhosh,
+                            VenkatSai{" "}
+                        </p>
+                    </section>
+
+                </p>
             </header>
-          
+
         </main>
-        )
+    )
 }
