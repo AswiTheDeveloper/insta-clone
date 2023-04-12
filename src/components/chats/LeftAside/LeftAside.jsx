@@ -2,23 +2,23 @@ import "./LeftAside.scss";
 import SearchSharpIcon from '@mui/icons-material/SearchSharp';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import Avatar from '@mui/material/Avatar';
-export const LeftAside = () => {
+const LeftAside = () => {
     return (
         <main className="LeftAside">
             <header>
                 <aside>
-                  <Avatar>S</Avatar>
+                    <Avatar>S</Avatar>
                 </aside>
                 <section>
                     <h1>Sahu</h1>
                     <p>Full-stack Developer</p>
                 </section>
                 <article>
-                    <EditOutlinedIcon/>
+                    <EditOutlinedIcon />
                 </article>
             </header>
             <section>
-                <SearchSharpIcon/>
+                <SearchSharpIcon />
                 <input type="text" placeholder="searchbyusername" />
             </section>
             <section>
@@ -33,3 +33,5 @@ export const LeftAside = () => {
         </main>
     )
 }
+
+export default LeftAside;
