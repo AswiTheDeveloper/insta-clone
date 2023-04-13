@@ -1,57 +1,44 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { HiUser } from "react-icons/hi";
-import { IoMdLock } from "react-icons/io";
-import { FcGoogle } from "react-icons/fc";
-// import { ImFacebook2, ImTwitter } from "react-icons/im";
-import login from "./login.png";
+import login from "../../../assets/profile.png";
+import google from '../../../assets/google.png';
+import facebook from '../../../assets/facebook.png';
+import twitter from '../../../assets/Twitter.png';
 import "./sign-in.scss";
+import { Button, TextField } from "@mui/material";
 
 const SignIn = () => {
   return (
-    <main className="sign-in">
-      <nav>
-        <h3>Insta Sign In</h3>{" "}
+    <main className="sign-up">
+      <nav className="navigation">
+        <h3>Insta Sign In</h3>
         <p>
-          New User? <Link to="/posts">Sign Up</Link>
+          New User? <Link to="/signup">Sign Up</Link>
         </p>
       </nav>
-
-      <section className="login-container">
-        <img className="image" src={login} alt="login-pic" />
-        <div className="main">
+      <section className="signup-container">
+        <article className="img-container">
+          <img src={login} alt="signin-pic" />
+        </article>
+        <div className="signup-form-container">
+          <div className="log-text">
+            <h1>Welcome Back!</h1>
+            <p>Login to continue</p>
+          </div>
           <form className="form-container">
-            <div className="log-text">
-              <h1>Welcome Back!</h1>
-              <p>Login to continue</p>
-            </div>
-            <label className="input-label" htmlFor="text">
-              <HiUser />
-              <input
-                className="input-field"
-                type="text"
-                id="text"
-                placeholder="Enter your E-mail"
-              />
-            </label>
-            <label className="input-label" htmlFor="password">
-              <IoMdLock />
-              <input
-                className="input-field"
-                type="password"
-                id="password"
-                placeholder="Enter your Password"
-              />
-            </label>
+            <TextField fullWidth id="fullWidth" type="email" label="E-mail" variant="standard" size="small"/>
+            <TextField fullWidth id="fullWidth" type="password" label="Password" variant="standard" size="small"/>
+
             <div className="login-password">
-              <button type="submit" className="login-btn">
-                LOGIN
-              </button>
-              <span>forget password</span>
+              <Button className="login-btn" type="submit" variant="contained">Login</Button>
+              <div>
+                <p>forget password</p>
+              </div>
             </div>
           </form>
-          <div className="parent">
-            {/* <p>Login with</p> <FcGoogle /> <ImFacebook2 /> <ImTwitter /> */}
+          <div className="social-btns">
+            <p>Login with</p> <img src={google} alt="google" className="google"/> <img src={facebook} alt="facebook" className="facebook"/> <img src={twitter} alt="twitter" className="twitter"/>
+
           </div>
         </div>
       </section>
