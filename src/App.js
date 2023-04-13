@@ -3,7 +3,7 @@ import React from "react";
 import Header from "./components/Header/Header";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Posts from './components/Posts/Posts';
-import Feed from './components/Feed/Explore/Feed';
+import Feed from './components/Feed/Feed';
 import Chat from './components/chats/Chat';
 import Profile from "./components/profile/Profile";
 import SignIn from "./components/profile/SignIn/SignIn";
