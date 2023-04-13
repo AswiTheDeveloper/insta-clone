@@ -4,7 +4,6 @@ import login from "../../../assets/profile.png";
 import google from '../../../assets/google.png';
 import facebook from '../../../assets/facebook.png';
 import twitter from '../../../assets/Twitter.png';
-
 import "./sign-in.scss";
 import { Button, TextField } from "@mui/material";
 
@@ -17,7 +16,6 @@ const SignIn = () => {
           New User? <Link to="/signup">Sign Up</Link>
         </p>
       </nav>
-
       <section className="signup-container">
         <article className="img-container">
           <img src={login} alt="signin-pic" />
@@ -40,6 +38,7 @@ const SignIn = () => {
           </form>
           <div className="social-btns">
             <p>Login with</p> <img src={google} alt="google" className="google"/> <img src={facebook} alt="facebook" className="facebook"/> <img src={twitter} alt="twitter" className="twitter"/>
+
           </div>
         </div>
       </section>
