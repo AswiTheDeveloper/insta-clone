@@ -3,7 +3,6 @@ import SearchSharpIcon from '@mui/icons-material/SearchSharp';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import Avatar from '@mui/material/Avatar';
 import AccountCircleSharpIcon from '@mui/icons-material/AccountCircleSharp';
-
 const LeftAside = () => {
     return (
         <main className="LeftAside">
@@ -19,6 +18,7 @@ const LeftAside = () => {
                     <EditOutlinedIcon />
                 </article>
             </header>
+
             <div className="friendsList">
                 <section className="leftsearch">
                     <SearchSharpIcon />
