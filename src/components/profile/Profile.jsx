@@ -3,6 +3,17 @@ import "./profile.scss";
 import profilePic from "../../assets/avatar.png";
 import location from "../../assets/location.png";
 export default function Feed() {
+
+
+  let user = JSON.parse(localStorage.user);
+
+
+
+
+
+
+
+
   return (
     <main className="temp-profile">
       <header>HEADEAR</header>
@@ -10,15 +21,15 @@ export default function Feed() {
         <aside>
           <img className="profile-pic" src={profilePic} alt="avatar" />
           <article className="profile-details">
-            <h2>User Name</h2>
-            <p>User Email</p>
-            <p>User Role</p>
+            <h2>{user.name}</h2>
+            <p>{user.email}</p>
+            <p>{user.role}</p>
 
             <p className="location">
-              <img  src={location} alt="" /> User Country
+              <img src={location} alt="" /> {user.country}
             </p>
             <p>
-              <b>User About</b> 
+              <b>{user.about}</b>
             </p>
             <p>Lorem ipsum, dolor sit amet conse</p>
           </article>

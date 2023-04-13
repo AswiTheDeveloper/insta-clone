@@ -19,7 +19,7 @@ export default function Posts() {
     }, [])
 
     if ((localStorage.user)) {
-        navigate('/profile');
+        navigate('/signup');
         console.log(localStorage.user)
 
     }
