@@ -63,10 +63,7 @@ const SignUp = () => {
           <form className="signup-form">
             <label htmlFor="fullname">
               Full Name
-              <input type="text" id="fullname" onChange={(e) => setUser({
-                ...user,
-                name: e.target.value
-              })} placeholder="Enter your full name" required />
+              <input type="text" id="fullname" placeholder="Enter your full name" required />
             </label>
             <label htmlFor="email">
               E-mail

@@ -40,13 +40,13 @@ export default function Header() {
                             <strong>Header/Routing:</strong> Aswi
                         </p>
                         <p>
-                            <strong>Feed/Explore:</strong>
+                            <strong>Feed/Explore:Rohan,Satwik</strong>
                         </p>
                         <p>
                             <strong>Insta Posts:</strong>Sai,Babji,kumar
                         </p>
                         <p>
-                            <strong>Chat:</strong> Kiran, Bhavani
+                            <strong>Chat:</strong> Kiran, Bhavani,Padmavathi
                         </p>
                         <p>
                             <strong>SignIn/SignUp(create Account): </strong> Sagar, Santhosh,

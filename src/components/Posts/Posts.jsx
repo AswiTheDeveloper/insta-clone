@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from 'react-router-dom';
 import "./Post.scss";
 import likeFilled from "../../assets/likeFilled.png";
 import comment from "../../assets/comment.png";
@@ -11,18 +10,12 @@ import likeOutline from '../../assets/likeOutline.png';
 
 export default function Posts() {
     let [posts, setPosts] = useState([]);
-    const navigate = useNavigate();
     console.log(posts);
     useEffect(() => {
         getInstPosts();
         console.log('re-rendering...');
     }, [])
 
-    if ((localStorage.user)) {
-        navigate('/signup');
-        console.log(localStorage.user)
-
-    }
 
     async function getInstPosts() {
         await fetch("https://api.unsplash.com/photos?page=" + 4, {
@@ -38,6 +31,7 @@ export default function Posts() {
 
 
     const postLiked = (id) => {
+        let savedPost;
         setPosts([...posts.map((post) => {
             if (post.id === id) {
                 if ('liked' in post) {
@@ -46,10 +40,13 @@ export default function Posts() {
                     }
                     else {
                         post.liked = true;
+                        savedPost = post;
                     }
                 }
                 else {
                     post.liked = true;
+                    savedPost = post;
+
                 }
                 return post;
             }
@@ -57,6 +54,13 @@ export default function Posts() {
             return post;
         })])
 
+        let storage = JSON.parse(localStorage.user);
+        console.log(savedPost);
+        storage.offlinePosts = Array.from(new Set([...storage.offlinePosts, savedPost]));
+
+        localStorage.user = JSON.stringify(storage);
+
+        console.log(JSON.parse(localStorage.user));
     }
 
 
