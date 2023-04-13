@@ -12,7 +12,7 @@ export default function Posts() {
     }, [])
 
     async function getInstPosts() {
-        await fetch("https://api.unsplash.com/photos?page=" + 1, {
+        await fetch("https://api.unsplash.com/photos?page=" +1 , {
             method: 'GET',
             cors: "true",
             headers: {
