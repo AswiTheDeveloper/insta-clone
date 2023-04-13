@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
 import "./Post.scss";
 import likeFilled from "../../assets/likeFilled.png";
 import comment from "../../assets/comment.png";
@@ -10,11 +11,18 @@ import likeOutline from '../../assets/likeOutline.png';
 
 export default function Posts() {
     let [posts, setPosts] = useState([]);
+    const navigate = useNavigate();
     console.log(posts);
     useEffect(() => {
         getInstPosts();
         console.log('re-rendering...');
     }, [])
+
+    if ((localStorage.user)) {
+        navigate('/profile');
+        console.log(localStorage.user)
+
+    }
 
     async function getInstPosts() {
         await fetch("https://api.unsplash.com/photos?page=" + 4, {
