@@ -1,21 +1,26 @@
 import React from "react";
 import "./profile.scss";
+import { useNavigate } from "react-router-dom";
 import profilePic from "../../assets/avatar.png";
 import location from "../../assets/location.png";
-export default function Feed() {
-
-
-  let user = JSON.parse(localStorage.user);
-
-
+const Feed = () => {
+  let user;
+  const navigate = useNavigate();
+  if (!(localStorage.user)) {
+    navigate('/signup');
+    alert('test')
+  }
+  else {
+    user = JSON.parse(localStorage.user);
+  }
   return (
     <main className="temp-profile">
       <header></header>
       <div className="aside-profile">
-        <aside>
+        {user && <aside>
           <img className="profile-pic" src={profilePic} alt="avatar" />
           <article className="profile-details">
-            <h2>{user.name}</h2>
+            <h2>{user.name.toUpperCase()}</h2>
             <p>{user.email}</p>
             <p>{user.role}</p>
 
@@ -28,13 +33,13 @@ export default function Feed() {
             <p>Lorem ipsum, dolor sit amet conse</p>
           </article>
         </aside>
-
+        }
         <section className="offline-posts">
           <h4 className="liked-posts">Liked Posts</h4>
           <hr />
           <main>
 
-            {user?.offlinePosts && user.offlinePosts.map((post) => {
+            {user && user?.offlinePosts && user.offlinePosts.map((post) => {
               return (
                 <article className="insta-post" key={post.id}>
                   <section>
@@ -59,3 +64,6 @@ export default function Feed() {
     </main>
   );
 }
+
+
+export default Feed;

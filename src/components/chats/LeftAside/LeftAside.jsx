@@ -1,17 +1,25 @@
 import "./LeftAside.scss";
+import { useNavigate } from "react-router-dom";
 import SearchSharpIcon from '@mui/icons-material/SearchSharp';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import Avatar from '@mui/material/Avatar';
-import AccountCircleSharpIcon from '@mui/icons-material/AccountCircleSharp';
-const LeftAside = () => {
+const LeftAside = ({ setCurrentUser }) => {
+    let navigate = useNavigate();
+    if (!(localStorage.user)) {
+        navigate('/signin');
+    }
+    let user = JSON.parse(localStorage.user);
+    let users = JSON.parse(localStorage.users);
+    console.log(users);
+
     return (
         <main className="LeftAside">
             <header>
                 <nav>
-                    <Avatar className="user-Icon">S</Avatar>
+                    <Avatar className="user-Icon">{user.name.slice(0, 1)}</Avatar>
                     <section>
-                        <h1>Sahu Pawan Kalyan</h1>
-                        <p>Full-stack Developer</p>
+                        <h1>{user.name}</h1>
+                        <p>{user.email}</p>
                     </section>
                 </nav>
                 <article>
@@ -25,11 +33,23 @@ const LeftAside = () => {
                     <input type="search" placeholder="Search Friends..." />
                 </section>
                 <section className="chatList">
-                    <AccountCircleSharpIcon className='friend-ChatIcon' />
-                    <article>
-                        <h1>Friend Name</h1>
-                        <p>hello hi</p>
-                    </article>
+                    {users.map((user) => {
+                        return (
+                            <article>
+                                <img src={user.user.profile_image.medium} alt="img" />
+                                <div onClick={() => {
+                                    setCurrentUser({
+                                        name: user.user.name,
+                                        profilePic: user.user.profile_image.medium,
+                                        username: user.user.instagram_username
+                                    })
+                                }}>
+                                    <h1>{user.user.name}</h1>
+                                    <p>{user.user.social.instagram_username}</p>
+                                </div>
+                            </article>
+                        )
+                    })}
                 </section>
             </div>
         </main>

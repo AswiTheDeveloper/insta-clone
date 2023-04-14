@@ -1,5 +1,5 @@
 .LeftAside {
-    width: 40%;
+    width: 35%;
     height: 100%;
     overflow-y: scroll;
     background-color: rgba(232, 241, 239, 0.938);
@@ -25,6 +25,8 @@
             .user-Icon {
                 height: 3.5rem !important;
                 width: 3.5rem !important;
+                font-weight: bold;
+                font-size: 2rem;
             }
 
             section {
@@ -71,17 +73,21 @@
 }
 
 .chatList {
-    width: 100%;
+    width: 80%;
     height: 3rem;
     display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+    flex-direction: column;
+    text-align: start;
+    gap: .5rem;
 
     article {
         width: 80%;
         display: flex;
-        flex-direction: column;
-        align-items: start;
+        gap: .5rem;
+
+        img {
+            border-radius: 50%;
+        }
 
         h1 {
             color: blue;

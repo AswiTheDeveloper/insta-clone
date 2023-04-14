@@ -19,31 +19,24 @@ const SignUp = () => {
 
   console.log(user);
 
-
-
-
   function getUserData(e) {
     e.preventDefault();
+    if (user.password.length < 5) {
+      alert('Password must be at least 5 characters');
+      return;
+    }
+    if (user.password !== user.cpassword) {
+      alert('PASSWORDS NOT MATCHED');
+      return;
+    }
     if (Object.values(user).every((e) => e !== '')) {
-
-
-      if (user.password.length <= 5) {
-        alert('Password must be at least 5 characters');
-        return;
-      }
-      if (user.password !== user.cpassword) {
-        alert('PASSWORDS NOT MATCHED');
-        return;
-      }
       localStorage.user = JSON.stringify(user);
       console.log(localStorage.user);
-      navigate('/profile');
-
+      navigate('/posts');
 
     }
 
   }
-
 
 
   return (
@@ -60,10 +53,13 @@ const SignUp = () => {
         </article>
         <article className="signup-form-container">
           <h2>Create your account</h2>
-          <form className="signup-form">
+          <form className="signup-form" onSubmit={(event) => getUserData(event)}>
             <label htmlFor="fullname">
               Full Name
-              <input type="text" id="fullname" placeholder="Enter your full name" required />
+              <input type="text" id="fullname" placeholder="Enter your full name" required onChange={(e) => setUser({
+                ...user,
+                name: e.target.value
+              })} />
             </label>
             <label htmlFor="email">
               E-mail
@@ -122,7 +118,7 @@ const SignUp = () => {
               <input type="checkbox" name="tnc" id="tnc" required />
               <label htmlFor="tnc">agree to the terms and privacy policy</label>
             </div>
-            <button type="submit" onClick={(event) => getUserData(event)}>Create Account</button>
+            <button type="submit" >Create Account</button>
           </form>
         </article>
       </section>

@@ -6,9 +6,16 @@ import share from "../../assets/share.png";
 // import bookmarkFilled from "../../assets/bookmarkFilled.png";
 import bookmarkOutline from "../../assets/bookMarkOutline.png";
 import likeOutline from '../../assets/likeOutline.png';
+import { useNavigate } from "react-router-dom";
 
 
 export default function Posts() {
+    const navigate = useNavigate();
+    if (!(localStorage.user)) {
+        navigate('/signup');
+    }
+
+
     let [posts, setPosts] = useState([]);
     console.log(posts);
     useEffect(() => {
@@ -26,6 +33,7 @@ export default function Posts() {
             }
         }).then(res => res.json()).then(res => {
             setPosts(res)
+            localStorage.users = JSON.stringify(res);
         })
     }
 
@@ -55,12 +63,16 @@ export default function Posts() {
         })])
 
         let storage = JSON.parse(localStorage.user);
-        console.log(savedPost);
-        storage.offlinePosts = Array.from(new Set([...storage.offlinePosts, savedPost]));
+
+        if (storage.offlinePosts) {
+            storage.offlinePosts = Array.from(new Set([...storage.offlinePosts, savedPost]));
+        }
+        else {
+            storage.offlinePosts = [];
+            storage.offlinePosts.push(savedPost);
+        }
 
         localStorage.user = JSON.stringify(storage);
-
-        console.log(JSON.parse(localStorage.user));
     }
 
 
