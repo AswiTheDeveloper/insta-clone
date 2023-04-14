@@ -12,6 +12,7 @@ const SignUp = () => {
     email: '',
     password: '',
     cpassword: '',
+    gender:'',
     role: '',
     country: '',
     about: ''
@@ -19,13 +20,9 @@ const SignUp = () => {
 
   console.log(user);
 
-
-
-
   function getUserData(e) {
     e.preventDefault();
     if (Object.values(user).every((e) => e !== '')) {
-
 
       if (user.password.length <= 5) {
         alert('Password must be at least 5 characters');
@@ -38,7 +35,6 @@ const SignUp = () => {
       localStorage.user = JSON.stringify(user);
       console.log(localStorage.user);
       navigate('/profile');
-
 
     }
 
@@ -63,7 +59,10 @@ const SignUp = () => {
           <form className="signup-form">
             <label htmlFor="fullname">
               Full Name
-              <input type="text" id="fullname" placeholder="Enter your full name" required />
+              <input type="text" id="fullname" placeholder="Enter your full name" required onChange={(e) => setUser({
+                ...user,
+                name: e.target.value
+              })}/>
             </label>
             <label htmlFor="email">
               E-mail
@@ -72,44 +71,55 @@ const SignUp = () => {
                 email: e.target.value
               })} required />
             </label>
-            <label htmlFor="password">
-              Password
-              <input type="password" id="password" placeholder="Enter your password" onChange={(e) => setUser({
-                ...user,
-                password: e.target.value
-              })} required />
-            </label>
-            <label htmlFor="cnfpassword">
-              Confirm Password
-              <input type="password" id="cnfpassword" placeholder="Re-enter your password" onChange={(e) => setUser({
-                ...user,
-                cpassword: e.target.value
-              })} required />
-            </label>
             <div className="row">
-              <label htmlFor="role">
-                Role
-                <input type="text" id="role" placeholder="Your role" onChange={(e) => setUser({
+              <label htmlFor="password">
+                Password
+                <input type="password" id="password" placeholder="Enter your password" onChange={(e) => setUser({
                   ...user,
-                  role: e.target.value
+                  password: e.target.value
                 })} required />
               </label>
-              <label htmlFor="country">
-                Country
-                <select onChange={(e) => setUser({
+              <label htmlFor="cnfpassword">
+                Confirm Password
+                <input type="password" id="cnfpassword" placeholder="Re-enter your password" onChange={(e) => setUser({
                   ...user,
-                  country: e.target.value
-                })}>
-                  <option value="">SELECT</option>
-                  <option value="india">
-                    INDIA
-                  </option>
-                  <option value="china">CHINA</option>
-                  <option value="japan">JAPAN</option>
-                  <option value="kuwait">KUWAIT</option>
-                </select>
+                  cpassword: e.target.value
+                })} required />
               </label>
             </div>
+            <label htmlFor="gender" className="radio">
+              <span>Gender:-</span> <input type="radio" name="gender" value='male' onChange={(e) => setUser({
+                  ...user,
+                  gender: e.target.value
+                })}/>Male
+              <input type="radio" name="gender" value='female' onChange={(e) => setUser({
+                  ...user,
+                  gender: e.target.value
+                })}/>Female
+            </label>
+
+            <label htmlFor="role">
+              Role
+              <input type="text" id="role" placeholder="Your role" onChange={(e) => setUser({
+                ...user,
+                role: e.target.value
+              })} required />
+            </label>
+            <label htmlFor="country">
+              Country
+              <select onChange={(e) => setUser({
+                ...user,
+                country: e.target.value
+              })}>
+                <option value="">SELECT</option>
+                <option value="india">
+                  INDIA
+                </option>
+                <option value="china">CHINA</option>
+                <option value="japan">JAPAN</option>
+                <option value="kuwait">KUWAIT</option>
+              </select>
+            </label>
 
             <label htmlFor="about">
               About Yourself
@@ -120,7 +130,7 @@ const SignUp = () => {
             </label>
             <div className="create-btn">
               <input type="checkbox" name="tnc" id="tnc" required />
-              <label htmlFor="tnc">agree to the terms and privacy policy</label>
+              <label htmlFor="tnc">Agree to the terms and privacy policy</label>
             </div>
             <button type="submit" onClick={(event) => getUserData(event)}>Create Account</button>
           </form>
@@ -129,5 +139,4 @@ const SignUp = () => {
     </main>
   );
 };
-
 export default SignUp;

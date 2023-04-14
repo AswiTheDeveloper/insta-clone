@@ -1,6 +1,7 @@
 import React from "react";
 import "./profile.scss";
-import profilePic from "../../assets/avatar.png";
+import profilePicMale from "../../assets/avatar.png";
+import profilePicFemale from "../../assets/avatar-female.png";
 import location from "../../assets/location.png";
 export default function Feed() {
 
@@ -13,10 +14,11 @@ export default function Feed() {
       <header></header>
       <div className="aside-profile">
         <aside>
-          <img className="profile-pic" src={profilePic} alt="avatar" />
+        { user.gender == 'male' ? <img className="profile-pic" src= {profilePicMale} alt="avatar"/> : <img className="profile-pic" src= {profilePicFemale} alt="avatar" />}
           <article className="profile-details">
             <h2>{user.name}</h2>
             <p>{user.email}</p>
+            <p>{user.gender}</p>
             <p>{user.role}</p>
 
             <p className="location">
