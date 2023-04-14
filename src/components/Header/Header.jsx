@@ -40,7 +40,7 @@ export default function Header() {
                             <strong>Header/Routing:</strong> Aswi
                         </p>
                         <p>
-                            <strong>Feed/Explore:Rohan,Satwik</strong>
+                            <strong>Feed/Explore:</strong>Rohan,Satwik
                         </p>
                         <p>
                             <strong>Insta Posts:</strong>Sai,Babji,kumar
@@ -50,7 +50,7 @@ export default function Header() {
                         </p>
                         <p>
                             <strong>SignIn/SignUp(create Account): </strong> Sagar, Santhosh,
-                            VenkatSai{" "}
+                            VenkatSai
                         </p>
                     </section>
 

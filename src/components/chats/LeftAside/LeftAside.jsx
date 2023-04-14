@@ -5,7 +5,7 @@ import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import Avatar from '@mui/material/Avatar';
 const LeftAside = ({ setCurrentUser }) => {
     let navigate = useNavigate();
-    if (!(localStorage.user)) {
+    if (!(sessionStorage.userLoggedIn)) {
         navigate('/signin');
     }
     let user = JSON.parse(localStorage.user);
@@ -41,8 +41,9 @@ const LeftAside = ({ setCurrentUser }) => {
                                     setCurrentUser({
                                         name: user.user.name,
                                         profilePic: user.user.profile_image.medium,
-                                        username: user.user.instagram_username
-                                    })
+                                        username: user.user.instagram_username,
+                                        chat: []
+                                    });
                                 }}>
                                     <h1>{user.user.name}</h1>
                                     <p>{user.user.social.instagram_username}</p>

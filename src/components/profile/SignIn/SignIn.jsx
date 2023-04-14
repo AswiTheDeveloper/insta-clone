@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import login from "../../../assets/profile.png";
 import google from '../../../assets/google.png';
 import facebook from '../../../assets/facebook.png';
@@ -8,6 +8,24 @@ import "./sign-in.scss";
 import { Button, TextField } from "@mui/material";
 
 const SignIn = () => {
+  const nav = useNavigate();
+  let [loggedUser, setLoggedUser] = useState({
+    email: '',
+    password: '',
+  });
+
+  const validateUser = (e) => {
+    e.preventDefault();
+    let user = JSON.parse(localStorage.user);
+    if (user.email === loggedUser.email && user.password === loggedUser.password) {
+      nav('/posts');
+      sessionStorage.userLoggedIn = true;
+    }
+    else {
+      alert('Invalid username or password');
+    }
+  }
+
   return (
     <main className="sign-up">
       <nav className="navigation">
@@ -26,19 +44,28 @@ const SignIn = () => {
             <p>Login to continue</p>
           </div>
           <form className="form-container">
-            <TextField fullWidth id="fullWidth" type="email" label="E-mail" variant="standard" size="small"/>
-            <TextField fullWidth id="fullWidth" type="password" label="Password" variant="standard" size="small"/>
+            <TextField fullWidth id="fullWidth" value={loggedUser.email} type="email" label="E-mail" variant="standard" size="small" onChange={(event) => {
+              setLoggedUser({
+                ...loggedUser,
+                email: event.target.value
+              });
+            }} />
+            <TextField fullWidth id="fullWidth" type="password" label="Password" variant="standard" size="small" onChange={(event) => {
+              setLoggedUser({
+                ...loggedUser,
+                password: event.target.value
+              });
+            }} />
 
             <div className="login-password">
-              <Button className="login-btn" type="submit" variant="contained">Login</Button>
+              <Button className="login-btn" type="submit" variant="contained" onClick={(event) => validateUser(event)}>Login</Button>
               <div>
                 <p>forget password</p>
               </div>
             </div>
           </form>
           <div className="social-btns">
-            <p>Login with</p> <img src={google} alt="google" className="google"/> <img src={facebook} alt="facebook" className="facebook"/> <img src={twitter} alt="twitter" className="twitter"/>
-
+            <p>Login with</p> <img src={google} alt="google" className="google" /> <img src={facebook} alt="facebook" className="facebook" /> <img src={twitter} alt="twitter" className="twitter" />
           </div>
         </div>
       </section>

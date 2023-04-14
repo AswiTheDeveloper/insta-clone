@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Messaging.scss';
 import MicNoneOutlinedIcon from '@mui/icons-material/MicNoneOutlined';
 import AttachFileOutlinedIcon from '@mui/icons-material/AttachFileOutlined';
@@ -12,15 +12,14 @@ import NotificationsOutlinedIcon from '@mui/icons-material/NotificationsOutlined
 export default function Messaging({ currentUser }) {
     let [text, setText] = useState('');
     let [chat, setChat] = useState([
-        {
-            from: 'from',
-            to: 'to'
-        }
+
     ])
-
-
+    useEffect(() => {
+        setChat(currentUser.chat);
+    }, [currentUser])
     const sendText = () => {
-        if (text) {
+        if (text.from) {
+            console.log(text);
             setChat([...chat, text]);
             setText({
                 from: ''

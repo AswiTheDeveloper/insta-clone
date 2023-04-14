@@ -5,12 +5,12 @@
 
 
     .chat-box {
-        height: 34rem;
         margin-top: 8rem;
-        margin-left: 2rem;
+        margin-left: 1rem;
         display: flex;
         flex-direction: column;
         justify-content: end;
+        height: 66vh;
 
         article {
             display: flex;
@@ -45,7 +45,7 @@
 }
 
 #header {
-    width: 46rem;
+    width: 53%;
     height: 4rem;
     position: fixed;
     top: 1rem;

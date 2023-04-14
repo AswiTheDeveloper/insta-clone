@@ -31,9 +31,8 @@ const SignUp = () => {
     }
     if (Object.values(user).every((e) => e !== '')) {
       localStorage.user = JSON.stringify(user);
-      console.log(localStorage.user);
       navigate('/posts');
-
+      sessionStorage.userLoggedIn = true;
     }
 
   }

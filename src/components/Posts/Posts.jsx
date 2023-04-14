@@ -11,29 +11,30 @@ import { useNavigate } from "react-router-dom";
 
 export default function Posts() {
     const navigate = useNavigate();
-    if (!(localStorage.user)) {
-        navigate('/signup');
+    if (!(sessionStorage.userLoggedIn)) {
+        navigate('/signin');
     }
 
 
     let [posts, setPosts] = useState([]);
-    console.log(posts);
     useEffect(() => {
         getInstPosts();
-        console.log('re-rendering...');
     }, [])
 
 
     async function getInstPosts() {
-        await fetch("https://api.unsplash.com/photos?page=" + 4, {
+        await fetch("https://api.unsplash.com/photos?page=" + Math.round(Math.random() * 10 + 1), {
             method: 'GET',
             cors: "true",
             headers: {
                 "Authorization": "Client-ID WFptS3REbKwUXni8z0TZ6Bf4_ZaHdMokSoKyFefwUp4"
             }
         }).then(res => res.json()).then(res => {
-            setPosts(res)
-            localStorage.users = JSON.stringify(res);
+            setPosts(res);
+            let check = JSON.parse(localStorage.users);
+            localStorage.users = JSON.stringify([...check, ...res]);
+            console.log();
+
         })
     }
 
@@ -65,7 +66,10 @@ export default function Posts() {
         let storage = JSON.parse(localStorage.user);
 
         if (storage.offlinePosts) {
-            storage.offlinePosts = Array.from(new Set([...storage.offlinePosts, savedPost]));
+            storage.offlinePosts = [...storage.offlinePosts, savedPost];
+            let test = storage.offlinePosts.filter((e, i) => storage.offlinePosts.indexOf(e) === i);
+            storage.offlinePosts = test;
+
         }
         else {
             storage.offlinePosts = [];
