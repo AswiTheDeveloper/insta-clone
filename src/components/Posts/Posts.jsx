@@ -31,9 +31,13 @@ export default function Posts() {
             }
         }).then(res => res.json()).then(res => {
             setPosts(res);
-            let check = JSON.parse(localStorage.users);
-            localStorage.users = JSON.stringify([...check, ...res]);
-            console.log();
+            if (!(localStorage.users)) {
+                localStorage.users = JSON.stringify(res);
+            }
+            else {
+                let check = JSON.parse(localStorage.users);
+                localStorage.users = JSON.stringify([...check, ...res]);
+            }
 
         })
     }

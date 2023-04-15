@@ -11,14 +11,12 @@ import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded
 import NotificationsOutlinedIcon from '@mui/icons-material/NotificationsOutlined';
 export default function Messaging({ currentUser }) {
     let [text, setText] = useState('');
-    let [chat, setChat] = useState([
-
-    ])
+    let [chat, setChat] = useState([]);
     useEffect(() => {
         setChat(currentUser.chat);
     }, [currentUser])
     const sendText = () => {
-        if (text.from) {
+        if (text.from && currentUser.name) {
             console.log(text);
             setChat([...chat, text]);
             setText({
@@ -47,8 +45,9 @@ export default function Messaging({ currentUser }) {
                     chat && chat.map((e) => {
                         return (
                             <article>
-                                <p className='to'>{e.to}</p>
-                                <p className='from'>{e.from}</p>
+                                <p className='from'><span>{e.from}</span><span className='time'>{e.time}</span></p>
+                                <p className='to'><span>{e.to}</span><span className='time'>{e.time}</span></p>
+
 
                             </article>
                         )
@@ -63,7 +62,8 @@ export default function Messaging({ currentUser }) {
                     <MicNoneOutlinedIcon />
                     <input type="text" placeholder='Write Something...' value={text.from} onChange={(event) => setText({
                         from: event.target.value,
-                        to: event.target.value
+                        to: event.target.value,
+                        time: new Date().toLocaleTimeString()
                     })} />
                     <AttachFileOutlinedIcon />
                     <CameraAltOutlinedIcon />
